@@ -10,6 +10,10 @@ public class Space extends World
 {
     private Counter scoreCounter;
     private int startAsteroids = 3;
+    private int starSize;
+    private int r;
+    private int g;
+    private int b;
 
     /**
      * Create the space and all objects within it.
@@ -25,6 +29,7 @@ public class Space extends World
         addObject(rocket, getWidth()/2 + 100, getHeight()/2);
         
         addAsteroids(startAsteroids);
+        paintStars(300);
         
         scoreCounter = new Counter("Score: ");
         addObject(scoreCounter, 60, 480);
@@ -47,6 +52,28 @@ public class Space extends World
         }
     }
     
+    private void paintStars(int count)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            colorSpectrum();
+            int x = Greenfoot.getRandomNumber(getWidth());
+            int y = Greenfoot.getRandomNumber(getHeight());
+            GreenfootImage background = getBackground();
+            
+            starSize = Greenfoot.getRandomNumber(5);
+            background.fillOval(x, y, starSize, starSize);
+            
+        }
+    }
+    
+    public void colorSpectrum()
+    {
+        r = Greenfoot.getRandomNumber(255 - 0);
+        g = Greenfoot.getRandomNumber(255 - 0);
+        b = Greenfoot.getRandomNumber(255 - 0);
+    }
+    
     /**
      * This method is called when the game is over to display the final score.
      */
@@ -54,5 +81,4 @@ public class Space extends World
     {
         // TODO: show the score board here. Currently missing.
     }
-
 }
