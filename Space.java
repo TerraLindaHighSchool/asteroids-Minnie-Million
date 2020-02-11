@@ -59,7 +59,7 @@ public class Space extends World
             int x = Greenfoot.getRandomNumber(getWidth());
             int y = Greenfoot.getRandomNumber(getHeight());
             GreenfootImage background = getBackground();
-            background.setColor(Color.WHITE);
+            background.setColor(new Color(r, r, r, a));
             starSize = Greenfoot.getRandomNumber(5);
             background.fillOval(x, y, starSize, starSize);
             
