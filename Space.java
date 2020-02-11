@@ -3,8 +3,8 @@ import greenfoot.*;
 /**
  * Space. Something for rockets to fly in.
  * 
- * @author Michael Kölling
- * @version 1.1
+ * @author Millie Harrison
+ * @version 2/11/20
  */
 public class Space extends World
 {
