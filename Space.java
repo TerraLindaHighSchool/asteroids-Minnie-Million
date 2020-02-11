@@ -12,8 +12,7 @@ public class Space extends World
     private int startAsteroids = 3;
     private int starSize;
     private int r;
-    private int g;
-    private int b;
+    private int a;
 
     /**
      * Create the space and all objects within it.
@@ -60,7 +59,7 @@ public class Space extends World
             int x = Greenfoot.getRandomNumber(getWidth());
             int y = Greenfoot.getRandomNumber(getHeight());
             GreenfootImage background = getBackground();
-            
+            background.setColor(Color.WHITE);
             starSize = Greenfoot.getRandomNumber(5);
             background.fillOval(x, y, starSize, starSize);
             
@@ -69,9 +68,8 @@ public class Space extends World
     
     public void colorSpectrum()
     {
-        r = Greenfoot.getRandomNumber(255 - 0);
-        g = Greenfoot.getRandomNumber(255 - 0);
-        b = Greenfoot.getRandomNumber(255 - 0);
+        r = Greenfoot.getRandomNumber(255);
+        a = Greenfoot.getRandomNumber(255);
     }
     
     /**
