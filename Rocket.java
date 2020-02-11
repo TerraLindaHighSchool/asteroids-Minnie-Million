@@ -17,6 +17,7 @@ public class Rocket extends SmoothMover
     
     private GreenfootImage rocket = new GreenfootImage("rocket.png");    
     private GreenfootImage rocketWithThrust = new GreenfootImage("rocketWithThrust.png");
+    private boolean boosterOn = false;
 
     /**
      * Initialise this rocket.
@@ -34,6 +35,23 @@ public class Rocket extends SmoothMover
     {
         checkKeys();
         reloadDelayCount++;
+        move();
+        ignite();
+    }
+    
+    private void ignite()
+    {
+        if(Greenfoot.isKeyDown("up"))
+        {
+            boosterOn = true;
+            setImage("rocketWithThrust.png");
+            addToVelocity(new Vector(getRotation(), 0.3));
+        }
+        else
+        {
+            boosterOn = false;
+            setImage("rocket.png");
+        }
     }
     
     /**
@@ -44,6 +62,16 @@ public class Rocket extends SmoothMover
         if (Greenfoot.isKeyDown("space")) 
         {
             fire();
+        }
+        
+        if (Greenfoot.isKeyDown("left"))
+        {
+            turn(-5);
+        }
+        
+        if (Greenfoot.isKeyDown("right"))
+        {
+            turn(5);
         }
     }
     
@@ -60,5 +88,4 @@ public class Rocket extends SmoothMover
             reloadDelayCount = 0;
         }
     }
-    
 }
