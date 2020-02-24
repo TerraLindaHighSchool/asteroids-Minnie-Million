@@ -37,19 +37,28 @@ public class Rocket extends SmoothMover
         reloadDelayCount++;
         move();
         ignite();
+        checkCollision();
+    }
+    
+    private void checkCollision()
+    {
+        if(getOneIntersectingObject(Asteroid.class) != null)
+        {
+            World world = getWorld();
+            world.addObject (new Explosion(), getX(), getY());
+            world.removeObject(this);
+        }
     }
     
     private void ignite()
     {
         if(Greenfoot.isKeyDown("up"))
         {
-            boosterOn = true;
             setImage("rocketWithThrust.png");
             addToVelocity(new Vector(getRotation(), 0.3));
         }
         else
         {
-            boosterOn = false;
             setImage("rocket.png");
         }
     }
