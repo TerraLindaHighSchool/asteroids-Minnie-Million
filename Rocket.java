@@ -4,8 +4,7 @@ import greenfoot.*;
  * A rocket that can be controlled by the arrowkeys: up, left, right.
  * The gun is fired by hitting the 'space' key. 'z' releases a proton wave.
  * 
- * @author Poul Henriksen
- * @author Michael Kölling
+ * @author Millie Harrison
  * 
  * @version 1.1
  */
@@ -44,9 +43,10 @@ public class Rocket extends SmoothMover
     {
         if(getOneIntersectingObject(Asteroid.class) != null)
         {
-            World world = getWorld();
-            world.addObject (new Explosion(), getX(), getY());
-            world.removeObject(this);
+            Space space = (Space) getWorld();
+            space.gameOver();
+            space.addObject (new Explosion(), getX(), getY());
+            space.removeObject(this);
         }
     }
     
