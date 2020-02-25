@@ -6,7 +6,7 @@ import greenfoot.*;
  * 
  * @author Millie Harrison
  * 
- * @version 1.1
+ * @version 2/25/20
  */
 public class Rocket extends SmoothMover
 {

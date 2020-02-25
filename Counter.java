@@ -7,8 +7,8 @@ import greenfoot.*;
  * the world in Greenfoot.  If you keep a reference to the Counter then you
  * can adjust its value.
  * 
- * @author Neil Brown and Michael Kölling 
- * @version 1.1
+ * @author Millie Harrison
+ * @version 2/25/20
  */
 public class Counter extends Actor
 {

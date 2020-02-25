@@ -3,8 +3,8 @@ import greenfoot.*;
 /**
  * A bullet that can hit asteroids.
  * 
- * @author Poul Henriksen
- * @author Michael Kölling
+ * @author Millie Harrison
+ * @version 2/25/20
  */
 public class Bullet extends SmoothMover
 {
