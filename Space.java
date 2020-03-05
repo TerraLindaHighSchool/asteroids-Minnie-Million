@@ -19,7 +19,7 @@ public class Space extends World
      */
     public Space() 
     {
-        super(600, 500, 1);
+        super(1200, 800, 1);
         GreenfootImage background = getBackground();
         background.setColor(Color.BLACK);
         background.fill();
@@ -31,7 +31,7 @@ public class Space extends World
         paintStars(300);
         
         scoreCounter = new Counter("Score: ");
-        addObject(scoreCounter, 60, 480);
+        addObject(scoreCounter, 50, 780);
 
         Explosion.initializeImages();
         ProtonWave.initializeImages();
@@ -73,7 +73,7 @@ public class Space extends World
     
     public void colorSpectrum()
     {
-        r = Greenfoot.getRandomNumber(255);
+        r = Greenfoot.getRandomNumber(100)+155;
         a = Greenfoot.getRandomNumber(255);
     }
     
