@@ -14,8 +14,8 @@ public class Rocket extends SmoothMover
 
     private int reloadDelayCount;               // How long ago we fired the gun the last time.
     
-    private GreenfootImage rocket = new GreenfootImage("rocket.png");    
-    private GreenfootImage rocketWithThrust = new GreenfootImage("rocketWithThrust.png");
+    private GreenfootImage rocket = new GreenfootImage("Sparrow1.png");    
+    private GreenfootImage rocketWithThrust = new GreenfootImage("Sparrow2.png");
     private boolean boosterOn = false;
 
     /**
@@ -54,12 +54,12 @@ public class Rocket extends SmoothMover
     {
         if(Greenfoot.isKeyDown("up"))
         {
-            setImage("rocketWithThrust.png");
+            setImage("Sparrow2.png");
             addToVelocity(new Vector(getRotation(), 0.3));
         }
         else
         {
-            setImage("rocket.png");
+            setImage("Sparrow1.png");
         }
     }
     
