@@ -17,6 +17,7 @@ public class Rocket extends SmoothMover
     private GreenfootImage rocket = new GreenfootImage("Sparrow1.png");    
     private GreenfootImage rocketWithThrust = new GreenfootImage("Sparrow2.png");
     private boolean boosterOn = false;
+    private int life = 100;
 
     /**
      * Initialise this rocket.
@@ -81,6 +82,18 @@ public class Rocket extends SmoothMover
         if (Greenfoot.isKeyDown("right"))
         {
             turn(5);
+        }
+    }
+    
+    public void life()
+    {
+        life--;
+        if (life <= 0)
+        {
+            Space space = (Space) getWorld();
+            space.gameOver();
+            space.addObject (new Explosion(), getX(), getY());
+            space.removeObject(this);
         }
     }
     
