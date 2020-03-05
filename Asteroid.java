@@ -13,7 +13,9 @@ public class Asteroid extends SmoothMover
 
     /** When the stability reaches 0 the asteroid will explode */
     private int stability;
-
+    
+    private int reloadDelayCount;
+    private static final int gunReloadTime = 5; 
 
     /**
      * Create an asteroid with default size and random direction of movement.
@@ -44,6 +46,9 @@ public class Asteroid extends SmoothMover
     public void act()
     {         
         move();
+        //range();
+        turn(5);
+        reloadDelayCount++;
     }
 
     /**
@@ -65,6 +70,31 @@ public class Asteroid extends SmoothMover
     public int getStability() 
     {
         return stability;
+    }
+    
+    /**
+     * 
+     *public void range()
+     *{
+     *   if (getNeighbours(10,true,Rocket.class))
+     *   {
+     *       fire();
+     *   }
+     *}
+     */
+    
+    /**
+     * Fire a bullet if the gun is ready.
+     */
+    private void fire() 
+    {
+        if (reloadDelayCount >= gunReloadTime) 
+        {
+            Laser laser = new Laser (getVelocity(), getRotation());
+            getWorld().addObject (laser, getX(), getY());
+            laser.move ();
+            reloadDelayCount = 0;
+        }
     }
     
     /**
